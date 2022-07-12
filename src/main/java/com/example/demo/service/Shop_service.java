@@ -26,8 +26,4 @@ public class Shop_service {
     public List<Medicine> showAll(){
         return shopRepo.findAll();
     }
-
-
-
-
 }

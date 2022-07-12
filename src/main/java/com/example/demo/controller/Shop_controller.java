@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -25,13 +26,28 @@ public class Shop_controller {
     }
 
     @PostMapping("/medicine/new")
-    public String addMedicine(ModelMap modelMap, @Valid Medicine
-            medicine,BindingResult result) {
+    public String addMedicine(ModelMap modelMap, @Valid Medicine medicine, BindingResult result) {
         if (!result.hasErrors()) {
             shop_service.addMedicine(medicine);
         }
-        modelMap.put("medicines", shop_service.showAll());
-        modelMap.put("newMedicine", new Medicine());
         return "Home";
+    }
+
+    @GetMapping("/Edit/{id}")
+    public String editMedicine(@PathVariable int id, ModelMap modelMap) {
+        Medicine medicine = shop_service.showMedicine(id);
+        if(medicine != null) {
+            medicine.setId(id);
+            modelMap.put("medicine_edited", medicine);
+        }
+        return "Edit_medicine";
+    }
+
+    @PostMapping("/medicine/update")
+    public String submitEdit(ModelMap modelMap,@Valid Medicine medicine, BindingResult result) {
+        if (!result.hasErrors()) {
+            shop_service.addMedicine(medicine);
+        }
+        return "redirect:/";
     }
 }

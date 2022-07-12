@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
@@ -9,37 +8,8 @@
 <body>
 <div class = "container">
 <div class = "row">
-<table class="table col-12">
-  <thead>
-    <tr>
-      <th scope="col">Medicine Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Stock</th>
-      <th scope="col">Cost Price</th>
-      <th scope="col">Selling Price</th>
-      <th scope="col">Profit</th>
-    </tr>
-  </thead>
-  <tbody>
-  <jstl:forEach items = "${medicines}" var = "medicine">
-    <tr>
-      <th scope="row">${medicine.id}</th>
-      <td>${medicine.name}</td>
-      <td>${medicine.stock}</td>
-      <td>${medicine.costPrice}</td>
-      <td>${medicine.sellingPrice}</td>
-      <td>${medicine.profit}</td>
-      <td><a href="${pageContext.request.contextPath}/Edit/${medicine.id}" role="button"><i class="bi bi-pencil-square"></i></a>
-      <td><a href="${pageContext.request.contextPath}/Delete/${medicine.id}" role="button"><i class="bi bi-trash"></i></a>
-
-    </tr>
-    </jstl:forEach>
-  </tbody>
-</table>
-</div>
-<div class = "row">
-<form:form method = "post" action ="${pageContext.request.contextPath}/medicine/new"
-modelAttribute = "newMedicine">
+<form:form method = "post" action ="${pageContext.request.contextPath}/medicine/update"
+modelAttribute = "medicine_edited">
 <fieldset class ="form-group mb-3">
 <form:label class ="form-label" for ="name" path ="name">Name</form:label>
 <form:input class = "form-control" id ="name" type ="text" name ="name" path="name"
@@ -78,4 +48,3 @@ required ="required"/>
 </div>
 </body>
 </html>
-
