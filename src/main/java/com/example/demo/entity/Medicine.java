@@ -9,70 +9,71 @@ import javax.persistence.Id;
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Medicine_Id;
-    private String Medicine_Name;
-    private Integer Stock;
-    private double CostPrice;
-    private double SellingPrice;
-    private double Profit;
+    private Integer id;
+    private String name;
+    private Integer stock;
+    private double costPrice;
+    private double sellingPrice;
+    private double profit;
 
-    public Integer getMedicine_Id() {
-        return Medicine_Id;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setMedicine_Id(Integer medicine_Id) {
-        Medicine_Id = medicine_Id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getMedicine_Name() {
-        return Medicine_Name;
+    public String getName() {
+        return name;
     }
 
-    public void setMedicine_Name(String medicine_Name) {
-        Medicine_Name = medicine_Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getStock() {
-        return Stock;
+        return stock;
     }
 
     public void setStock(Integer stock) {
-        Stock = stock;
+        this.stock = stock;
     }
 
     public double getCostPrice() {
-        return CostPrice;
+        return costPrice;
     }
 
     public void setCostPrice(double costPrice) {
-        CostPrice = costPrice;
+        this.costPrice = costPrice;
     }
 
     public double getSellingPrice() {
-        return SellingPrice;
+        return sellingPrice;
     }
 
     public void setSellingPrice(double sellingPrice) {
-        SellingPrice = sellingPrice;
+        this.sellingPrice = sellingPrice;
     }
 
     public double getProfit() {
-        return Profit;
+        return profit;
     }
 
     public void setProfit(double profit) {
-        Profit = profit;
+        this.profit = profit;
     }
 
     @Override
     public String toString() {
         return "Medicine{" +
-                "Medicine_Id=" + Medicine_Id +
-                ", Medicine_Name='" + Medicine_Name + '\'' +
-                ", Stock=" + Stock +
-                ", CostPrice=" + CostPrice +
-                ", SellingPrice=" + SellingPrice +
-                ", Profit=" + Profit +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", stock=" + stock +
+                ", costPrice=" + costPrice +
+                ", sellingPrice=" + sellingPrice +
+                ", profit=" + profit +
                 '}';
     }
 }

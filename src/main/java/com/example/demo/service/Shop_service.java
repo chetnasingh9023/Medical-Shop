@@ -5,6 +5,7 @@ import com.example.demo.repo.Shop_repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,7 +23,7 @@ public class Shop_service {
     public void removeMedicine(Integer id){
         shopRepo.deleteById(id);
     }
-    public Iterable<Medicine> showAll(){
+    public List<Medicine> showAll(){
         return shopRepo.findAll();
     }
 
