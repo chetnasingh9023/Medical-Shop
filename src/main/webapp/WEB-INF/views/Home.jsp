@@ -9,7 +9,7 @@
 <body>
 <div class = "container">
 <div class = "row">
-<table class="table col-12">
+<table class="table table-striped col-12">
   <thead>
     <tr>
       <th scope="col">Medicine Id</th>
@@ -29,8 +29,8 @@
       <td>${medicine.costPrice}</td>
       <td>${medicine.sellingPrice}</td>
       <td>${medicine.profit}</td>
-      <td><a href="${pageContext.request.contextPath}/Edit/${medicine.id}" role="button"><i class="bi bi-pencil-square"></i></a>
-      <td><a href="${pageContext.request.contextPath}/Delete/${medicine.id}" role="button"><i class="bi bi-trash"></i></a>
+      <td><a href="${pageContext.request.contextPath}/Edit/${medicine.id}" role="button" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+      <td><a href="${pageContext.request.contextPath}/delete/${medicine.id}" role="button" class = "btn btn-outline-danger"><i class="bi bi-trash"></i></a>
 
     </tr>
     </jstl:forEach>

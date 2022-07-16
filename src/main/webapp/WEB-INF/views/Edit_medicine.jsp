@@ -10,31 +10,37 @@
 <div class = "row">
 <form:form method = "post" action ="${pageContext.request.contextPath}/medicine/update"
 modelAttribute = "medicine_edited">
-<fieldset class ="form-group mb-3">
+<fieldset class = "form-group mb-3 col-12" hidden>
+<form:label class ="form-label" for="id" path ="id">ID</form:label>
+<form:input class ="form-control" id ="id" type ="text" name="id" path="id"
+required ="required"/>
+<form:errors cssClass ="text-warning" path ="id"/>
+</fieldset>
+<fieldset class ="form-group mb-3 col-12">
 <form:label class ="form-label" for ="name" path ="name">Name</form:label>
 <form:input class = "form-control" id ="name" type ="text" name ="name" path="name"
 required ="required"/>
 <form:errors cssClass ="text-warning" path ="name"/>
 </fieldset>
-<fieldset class ="form-group mb-3">
+<fieldset class ="form-group mb-3 col-12">
 <form:label class ="form-label" for ="Stock" path ="stock">Stock</form:label>
 <form:input class = "form-control" id ="Stock" type ="text" name ="Stock" path="stock"
 required ="required"/>
 <form:errors cssClass ="text-warning" path ="stock"/>
 </fieldset>
-<fieldset class ="form-group mb-3">
+<fieldset class ="form-group mb-3 col-12">
 <form:label class ="form-label" for ="CostPrice" path ="costPrice">CostPrice</form:label>
 <form:input class = "form-control" id ="CostPrice" type ="text" name ="CostPrice" path="costPrice"
 required ="required"/>
 <form:errors cssClass ="text-warning" path ="costPrice"/>
 </fieldset>
-<fieldset class ="form-group mb-3">
+<fieldset class ="form-group mb-3 col-12">
 <form:label class ="form-label" for ="SellingPrice" path ="sellingPrice">SellingPrice</form:label>
 <form:input class = "form-control" id ="SellingPrice" type ="text" name ="SellingPrice" path="sellingPrice"
 required ="required"/>
 <form:errors cssClass ="text-warning" path ="sellingPrice"/>
 </fieldset>
-<fieldset class ="form-group mb-3">
+<fieldset class ="form-group mb-3 col-12">
 <form:label class ="form-label" for ="Profit" path ="profit">Profit</form:label>
 <form:input class = "form-control" id ="Profit" type ="text" name ="Profit" path="profit"
 required ="required"/>

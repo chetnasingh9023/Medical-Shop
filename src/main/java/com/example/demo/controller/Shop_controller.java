@@ -14,8 +14,11 @@ import javax.validation.Valid;
 
 @Controller
 public class Shop_controller {
-    @Autowired
-    private Shop_service shop_service;
+    private final Shop_service shop_service;
+
+    public Shop_controller(Shop_service shop_service) {
+        this.shop_service = shop_service;
+    }
 
 
     @GetMapping("/")
@@ -29,25 +32,37 @@ public class Shop_controller {
     public String addMedicine(ModelMap modelMap, @Valid Medicine medicine, BindingResult result) {
         if (!result.hasErrors()) {
             shop_service.addMedicine(medicine);
+            return "redirect:/";
+        } else {
+            return "redirect:/error";
         }
-        return "Home";
     }
 
     @GetMapping("/Edit/{id}")
-    public String editMedicine(@PathVariable int id, ModelMap modelMap) {
-        Medicine medicine = shop_service.showMedicine(id);
-        if(medicine != null) {
-            medicine.setId(id);
+    public String editMedicine(@PathVariable Integer id, ModelMap modelMap) {
+        Medicine medicine = shop_service.getMedicineById(id);
+        if (medicine != null) {
             modelMap.put("medicine_edited", medicine);
+            return "Edit_medicine";
+        } else {
+            return "redirect:/error";
         }
-        return "Edit_medicine";
     }
 
+
     @PostMapping("/medicine/update")
-    public String submitEdit(ModelMap modelMap,@Valid Medicine medicine, BindingResult result) {
+    public String submitEdit(@Valid Medicine medicine, BindingResult result) {
         if (!result.hasErrors()) {
-            shop_service.addMedicine(medicine);
+            shop_service.updateMedicine(medicine);
+            return "redirect:/";
+        } else {
+            return "redirect:/error";
         }
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteMedicine(@PathVariable Integer id) {
+        shop_service.removeMedicine(id);
         return "redirect:/";
     }
 }
